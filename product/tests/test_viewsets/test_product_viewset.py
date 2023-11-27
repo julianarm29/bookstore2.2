@@ -3,6 +3,8 @@
 
 import json
 
+from django.contrib.auth.models import User
+
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 
@@ -11,7 +13,6 @@ from django.urls import reverse
 from product.factories import CategoryFactory, ProductFactory
 from order.factories import UserFactory
 from product.models import Product
-
 
 class TestProductViewSet(APITestCase):
     client = APIClient()
@@ -23,6 +24,8 @@ class TestProductViewSet(APITestCase):
             title='pro controller',
             price=200.00,
         )
+
+        self.client.force_login(user=self.user)
 
     def test_get_all_product(self):
         response = self.client.get(
