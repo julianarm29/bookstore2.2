@@ -16,6 +16,11 @@ RUN apt-get update \
         libc-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# install postgres dependencies
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
+
 # Set the working directory
 WORKDIR /app
 
