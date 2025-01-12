@@ -5,7 +5,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from product import viewsets
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'product', viewsets.ProductViewSet, basename='product')
 router.register(r'category', viewsets.CategoryViewSet, basename='category')
 

@@ -17,6 +17,7 @@ Including another URLconf
 import debug_toolbar
 from django.contrib import admin
 from django.urls import path, re_path, include
+from rest_framework.documentation import include_docs_urls
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
@@ -25,4 +26,8 @@ urlpatterns = [
     path('', include('order.urls')),
     path('', include('product.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth')
+]
+
+urlpatterns += [
+    path('docs/', include_docs_urls(title='Bookstore API'))
 ]
