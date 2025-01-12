@@ -15,6 +15,10 @@ django-debug-toolbar = "^4.4.6"
 whitenoise = "^6.8.2"
 
 
+[tool.poetry.group.dev.dependencies]
+factory-boy = "^3.3.1"
+views = "^0.3"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
