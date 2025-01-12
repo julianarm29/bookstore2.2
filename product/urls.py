@@ -1,16 +1,12 @@
 from django.urls import path, include
-from django.http import HttpResponse
-from rest_framework import routers
-from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.routers import DefaultRouter
+from product.views import ProductViewSet, CategoryViewSet
 
-from product import viewsets
 
-router = routers.SimpleRouter()
-router.register(r'product', viewsets.ProductViewSet, basename='product')
-router.register(r'category', viewsets.CategoryViewSet, basename='category')
+router = DefaultRouter()
+router.register(r'products', ProductViewSet, basename='product')
+router.register(r'categories', CategoryViewSet, basename='category')
 
 urlpatterns = [
-    path('', lambda request: HttpResponse("API funcionando")),
     path('', include(router.urls)),
-    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]
