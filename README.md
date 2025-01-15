@@ -5,7 +5,6 @@ Bookstore APP from Backend Python course from EBAC
 ## Prerequisites
 
 ```
-Python 3.5>
 Docker && docker-compose
 
 ```
