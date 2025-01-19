@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: bookstore_dev
       POSTGRES_PASSWORD: bookstore_dev
       POSTGRES_DB: bookstore_dev_db
+    networks:
+      - bookstore_network
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -20,6 +22,12 @@ services:
       - ./.env
     depends_on:
       - db
+    networks:
+      - bookstore_network
 
 volumes:
   postgres_data:
+
+networks:
+  bookstore_network:
+    driver: bridge
