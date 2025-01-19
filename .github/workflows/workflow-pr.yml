@@ -19,7 +19,6 @@ jobs:
 
       - name: Test
         run: |
-          python manage.py migrate
           python manage.py test
 
       - name: Wemake Python Stylguide
