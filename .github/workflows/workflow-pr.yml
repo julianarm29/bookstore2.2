@@ -3,10 +3,16 @@ on: [pull_request]
 jobs:
 
   qa:
+    
     name: Quality check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Clear Python cache
+        run: |
+          rm -rf ~/.cache/pip
+          rm -rf ~/.cache/actions
+      
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
