@@ -137,4 +137,3 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'project-ebookstore-api-e41e0a5e44ac.herokuapp.com']
