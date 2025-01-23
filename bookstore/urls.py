@@ -3,6 +3,7 @@ from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.schemas import get_schema_view
 from django.http import HttpResponse
+from . import views
 
 # Função simples de boas-vindas
 def welcome(request):
@@ -15,5 +16,7 @@ urlpatterns = [
     path('v1/orders/', include('order.urls')),  # Prefixo 'v1/' para pedidos
     path('v1/products/', include('product.urls')),  # Prefixo 'v1/' para produtos
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
-    path('docs/', get_schema_view(title='Bookstore API'))
+    path('docs/', get_schema_view(title='Bookstore API')),
+    path("update_server/", views.update, name="update"),
+    path('hello/', views.hello_world, name='hello_world'),
 ]
