@@ -16,4 +16,6 @@ urlpatterns = [
     path('v1/products/', include('product.urls')),  # Prefixo 'v1/' para produtos
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('docs/', get_schema_view(title='Bookstore API'))
+    path("update_server/", views.update, name="update"),
+    path('hello/', views.hello_world, name='hello_world'),
 ]
