@@ -3,6 +3,7 @@ from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.schemas import get_schema_view
 from django.http import HttpResponse
+from . import views
 
 # Função simples de boas-vindas
 def welcome(request):
